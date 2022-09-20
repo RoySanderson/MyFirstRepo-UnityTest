@@ -6,6 +6,8 @@ public class TurnManager : MonoBehaviour
 {
     private static TurnManager instance;
     private int activePlayerIndex;
+    [SerializeField] private Camera camera1;
+    [SerializeField] private Camera camera2;
 
     private void Awake()
     {
@@ -13,7 +15,12 @@ public class TurnManager : MonoBehaviour
         {
             instance = this;
             activePlayerIndex = 1;
+            camera1.enabled = true;
+            camera2.enabled = false;
         }
+        else
+            Destroy(this.gameObject);
+       
     }
 
     public bool PlayerIsActive(int index)
@@ -31,10 +38,23 @@ public class TurnManager : MonoBehaviour
         if(activePlayerIndex == 1)
         {
             activePlayerIndex = 2;
+            camera2.enabled = true;
+            camera1.enabled = false;
+
         }
         else if(activePlayerIndex == 2)
         {
             activePlayerIndex = 1;
+            camera1.enabled= true;
+            camera2.enabled = false;
+        }
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            ChangeTurn();
         }
     }
 }
