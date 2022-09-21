@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float movespeed;
-    [SerializeField] private float jumpSpeed;
     [SerializeField] private int playerIndex;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float lookSensitivityH = 2f;
+    [SerializeField] private float lookSensitivityV = 2f;
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private Camera cam;
     private Rigidbody rb;
+    private float yaw = 0.0f;
+    private float pitch = 0.0f;
+    private float pitchClampUp = -15;
+    private float pitchClampDown = 25;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Cursor.visible = false;
     }
 
     void Update()
@@ -27,24 +35,31 @@ public class PlayerMovement : MonoBehaviour
             float forwardBack = Input.GetAxis("Vertical");
 
             Vector3 playerMovement = new Vector3(leftRight, 0, forwardBack).normalized;
-
-            rb.transform.Translate(playerMovement * movespeed * Time.deltaTime);
+            rb.transform.Translate(playerMovement * moveSpeed * Time.deltaTime);
 
             if (Input.GetButtonDown("Jump") && IsGrounded())
             {
-                rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
+                rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
             }
-
-            
+            MouseRotation();
         }
-
     }
 
     bool IsGrounded()
     {
         return Physics.CheckSphere(groundCheck.position, 0.1f, whatIsGround);
     }
-    
+
+    private void MouseRotation()
+    {
+        yaw += lookSensitivityH * Input.GetAxis("Mouse X");
+        pitch -= lookSensitivityV * Input.GetAxis("Mouse Y");
+        pitch = Mathf.Clamp(pitch, pitchClampUp, pitchClampDown);
+
+        cam.transform.localEulerAngles = new Vector3(pitch, 0.0f, 0.0f);
+        transform.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
+    }
+
 }
 
     

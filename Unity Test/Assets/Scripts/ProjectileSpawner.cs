@@ -9,6 +9,8 @@ public class ProjectileSpawner : MonoBehaviour
 
     void Update()
     {
-        
+        GameObject newProjectile = Instantiate(projectilePrefab);
+        newProjectile.transform.position = firePoint.position;
+        newProjectile.GetComponent<Projectile>().Spawn();
     }
 }

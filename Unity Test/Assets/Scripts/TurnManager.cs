@@ -8,6 +8,8 @@ public class TurnManager : MonoBehaviour
     private int activePlayerIndex;
     [SerializeField] private Camera camera1;
     [SerializeField] private Camera camera2;
+    [SerializeField] private AudioListener audio1;
+    [SerializeField] private AudioListener audio2;
 
     private void Awake()
     {
@@ -17,6 +19,8 @@ public class TurnManager : MonoBehaviour
             activePlayerIndex = 1;
             camera1.enabled = true;
             camera2.enabled = false;
+            audio1.enabled = true;
+            audio2.enabled = false;
         }
         else
             Destroy(this.gameObject);
@@ -40,6 +44,8 @@ public class TurnManager : MonoBehaviour
             activePlayerIndex = 2;
             camera2.enabled = true;
             camera1.enabled = false;
+            audio2.enabled = true;
+            audio1.enabled = false;
 
         }
         else if(activePlayerIndex == 2)
@@ -47,6 +53,8 @@ public class TurnManager : MonoBehaviour
             activePlayerIndex = 1;
             camera1.enabled= true;
             camera2.enabled = false;
+            audio1.enabled = true;
+            audio2.enabled = false;
         }
     }
 
@@ -56,5 +64,12 @@ public class TurnManager : MonoBehaviour
         {
             ChangeTurn();
         }
+
+        if (Input.GetKey(KeyCode.LeftAlt))
+        {
+            Cursor.visible = true;
+        }
+        else
+            Cursor.visible = false;
     }
 }
