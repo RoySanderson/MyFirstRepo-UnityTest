@@ -5,16 +5,18 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private Rigidbody bulletRb;
+    [SerializeField] private Rigidbody bulletRb;
 
     private void Awake()
     {
         bulletRb = GetComponent<Rigidbody>();
     }
-    public void Spawn()
+
+    public void Start()
     {
         bulletRb.velocity = transform.forward * speed;
     }
+
 
     private void OnTriggerEnter(Collider other)
     {

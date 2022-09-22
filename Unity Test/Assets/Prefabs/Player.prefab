@@ -767,7 +767,8 @@ MonoBehaviour:
   crossHair:
     serializedVersion: 2
     m_Bits: 193
-  test: {fileID: 0}
+  projectilePrefab: {fileID: 4746027331447753427, guid: c98968493b0c2a74da1626fdcc8e43e9, type: 3}
+  firePoint: {fileID: 9014076272493127058}
 --- !u!1001 &9006384911559701082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -775,6 +776,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9215162575170209048}
     m_Modifications:
+    - target: {fileID: 136644863609198536, guid: c9fb7878591618f48beaf8c9c2c7aad6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 136644863609198536, guid: c9fb7878591618f48beaf8c9c2c7aad6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2108658731082926147, guid: c9fb7878591618f48beaf8c9c2c7aad6, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -848,5 +857,10 @@ PrefabInstance:
 --- !u!4 &7043188545444215321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2108658731082926147, guid: c9fb7878591618f48beaf8c9c2c7aad6, type: 3}
+  m_PrefabInstance: {fileID: 9006384911559701082}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9014076272493127058 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 136644863609198536, guid: c9fb7878591618f48beaf8c9c2c7aad6, type: 3}
   m_PrefabInstance: {fileID: 9006384911559701082}
   m_PrefabAsset: {fileID: 0}
