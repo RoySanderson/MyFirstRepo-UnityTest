@@ -17,7 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private float yaw = 0.0f;
     private float pitch = 0.0f;
     private float pitchClampUp = -15;
-    private float pitchClampDown = 25;
+    private float pitchClampDown = 15;
+    private float playerJumps;
 
 
     void Start()
@@ -26,26 +27,36 @@ public class PlayerMovement : MonoBehaviour
         Cursor.visible = false;
     }
 
+
     void Update()
     {
         if (TurnManager.GetInstance().PlayerIsActive(playerIndex))
         {
+            MouseRotation();
+            playerJumps = 0;
+
+            if (Input.GetButtonDown("Jump") && IsGrounded())
+            {
+                rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+                playerJumps++;
+            }
+
+            if (playerJumps > 3)
+            {
+                TurnManager.GetInstance().ChangeTurn();
+                playerJumps = 0;
+            }
 
             float leftRight = Input.GetAxis("Horizontal");
             float forwardBack = Input.GetAxis("Vertical");
 
             Vector3 playerMovement = new Vector3(leftRight, 0, forwardBack).normalized;
-            rb.transform.Translate(playerMovement * moveSpeed * Time.deltaTime);
-
-            if (Input.GetButtonDown("Jump") && IsGrounded())
-            {
-                rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
-            }
-            MouseRotation();
+            rb.transform.Translate(moveSpeed * Time.deltaTime * playerMovement);
         }
     }
 
-    bool IsGrounded()
+
+    public bool IsGrounded()
     {
         return Physics.CheckSphere(groundCheck.position, 0.1f, whatIsGround);
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
+    private PlayerMovement playerMovement;
     private static TurnManager instance;
     private int activePlayerIndex;
     [SerializeField] private Camera camera1;
@@ -11,9 +12,10 @@ public class TurnManager : MonoBehaviour
     [SerializeField] private AudioListener audio1;
     [SerializeField] private AudioListener audio2;
 
+
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             activePlayerIndex = 1;
@@ -24,7 +26,8 @@ public class TurnManager : MonoBehaviour
         }
         else
             Destroy(this.gameObject);
-       
+
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     public bool PlayerIsActive(int index)
@@ -46,7 +49,6 @@ public class TurnManager : MonoBehaviour
             camera1.enabled = false;
             audio2.enabled = true;
             audio1.enabled = false;
-
         }
         else if(activePlayerIndex == 2)
         {
