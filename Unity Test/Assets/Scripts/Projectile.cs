@@ -17,8 +17,7 @@ public class Projectile : MonoBehaviour
         bulletRb.velocity = transform.forward * speed;
     }
 
-
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
     }

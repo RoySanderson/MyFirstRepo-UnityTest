@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
-    private PlayerMovement playerMovement;
     private static TurnManager instance;
     private int activePlayerIndex;
     [SerializeField] private Camera camera1;
@@ -26,8 +25,6 @@ public class TurnManager : MonoBehaviour
         }
         else
             Destroy(this.gameObject);
-
-        playerMovement = GetComponent<PlayerMovement>();
     }
 
     public bool PlayerIsActive(int index)

@@ -8,13 +8,6 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform firePoint;
 
-    private PlayerMovement playerMovement;
-
-    private void Awake()
-    {
-        playerMovement = GetComponent<PlayerMovement>();
-    }
-
     void Update()
     {
         if (TurnManager.GetInstance().PlayerIsActive(playerIndex))
