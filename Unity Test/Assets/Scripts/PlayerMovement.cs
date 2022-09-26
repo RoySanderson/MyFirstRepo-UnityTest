@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private float yaw = 0.0f;
     private float pitch = 0.0f;
-    private float pitchClampUp = -15;
+    private float pitchClampUp = -25;
     private float pitchClampDown = 15;
     private float playerJumps;
 
@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
 
