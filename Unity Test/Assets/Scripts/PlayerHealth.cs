@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("SmallBullet"))
         {
-            TakeDamage(10);
+            TakeDamage(20);
         }
     }
     void TakeDamage(int damage)

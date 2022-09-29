@@ -10,12 +10,6 @@ public class playerTeleport : MonoBehaviour
     public float posY;
     public float posZ;
 
-
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
        if (playerHealth.currentHealth <= 0)
