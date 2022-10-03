@@ -1026,6 +1026,7 @@ MonoBehaviour:
   camera2: {fileID: 2010134390}
   audio1: {fileID: 2106470768}
   audio2: {fileID: 2010134391}
+  timeLeft: {fileID: 1758128401}
 --- !u!4 &887287914
 Transform:
   m_ObjectHideFlags: 0
@@ -1735,7 +1736,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1490
+  m_Name: pb_Mesh-3770
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1904,6 +1905,7 @@ GameObject:
   - component: {fileID: 1758128398}
   - component: {fileID: 1758128400}
   - component: {fileID: 1758128399}
+  - component: {fileID: 1758128401}
   m_Layer: 5
   m_Name: Countdown
   m_TagString: Untagged
@@ -2028,6 +2030,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758128397}
   m_CullTransparentMesh: 1
+--- !u!114 &1758128401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758128397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66d8a2264a493c4594241be4e86aa94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnTime: 10
+  currentTime: 0
+  timeText: {fileID: 1758128399}
 --- !u!1 &1793263058
 GameObject:
   m_ObjectHideFlags: 0

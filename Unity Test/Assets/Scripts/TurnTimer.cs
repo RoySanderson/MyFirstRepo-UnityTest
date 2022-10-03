@@ -1,18 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TurnTimer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float turnTime;
+    [SerializeField] private float currentTime;
+    [SerializeField] private TextMeshProUGUI timeText;
+
+    public void Start()
     {
-        
+        currentTime = turnTime; 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        currentTime -= 1 * Time.deltaTime;
+        timeText.text = currentTime.ToString("0");
+
+        if (currentTime <= 0)
+        {
+            currentTime = 0;
+
+            if (currentTime == 0)
+            {
+                TurnManager.GetInstance().ChangeTurn();
+                currentTime = turnTime;
+            }
+        }
     }
 }
