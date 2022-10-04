@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerTeleport : MonoBehaviour
+public class PlayerTeleport : MonoBehaviour
 {
     public PlayerHealth playerHealth;
     public HealthBarScript healthBar;
@@ -18,5 +18,13 @@ public class playerTeleport : MonoBehaviour
             playerHealth.currentHealth = 100;
             healthBar.MaxHealth(100);
         } 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("InvisFloor"))
+        {
+            gameObject.transform.position = new Vector3(posX, posY, posZ);
+        }
     }
 }

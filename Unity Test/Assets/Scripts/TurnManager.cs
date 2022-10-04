@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class TurnManager : MonoBehaviour
 {
@@ -11,7 +10,6 @@ public class TurnManager : MonoBehaviour
     [SerializeField] private Camera camera2;
     [SerializeField] private AudioListener audio1;
     [SerializeField] private AudioListener audio2;
-    [SerializeField] public TurnTimer timeLeft;
 
 
     private void Awake()
@@ -61,7 +59,6 @@ public class TurnManager : MonoBehaviour
 
     public void Update()
     {
-
         if (Input.GetKeyUp(KeyCode.P))
         {
             ChangeTurn();
