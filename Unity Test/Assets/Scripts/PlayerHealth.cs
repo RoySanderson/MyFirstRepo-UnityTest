@@ -20,10 +20,20 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(20);
         }
+        if (collision.gameObject.CompareTag("Health"))
+        {
+            GainHealth(60);
+        }
     }
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+    }
+
+    void GainHealth(int extraHealth)
+    {
+        currentHealth += extraHealth;
         healthBar.SetHealth(currentHealth);
     }
 }
