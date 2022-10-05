@@ -28,7 +28,7 @@ public class PlayerShoot : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
                 Vector3 aimDir = (mousePosition - firePoint.position).normalized;
-                Instantiate(projectilePrefab, firePoint.position, Quaternion.LookRotation(aimDir, Vector3.up));
+                Instantiate(projectilePrefab, firePoint.position, Quaternion.LookRotation(aimDir, Vector3.up));  
             }
         }
     }   
