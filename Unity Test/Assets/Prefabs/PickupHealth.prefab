@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5359264346108637223}
   - component: {fileID: 5359264346108637222}
-  - component: {fileID: 5359264346108637221}
+  - component: {fileID: 7993934258376017060}
   m_Layer: 0
   m_Name: PickupHealth
   m_TagString: Untagged
@@ -146,7 +146,7 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 10.61, y: 8.52, z: -34.9}
---- !u!114 &5359264346108637221
+--- !u!114 &7993934258376017060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
