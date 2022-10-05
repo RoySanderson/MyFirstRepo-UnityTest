@@ -1,3 +1,5 @@
+using JetBrains.Annotations;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
@@ -7,12 +9,15 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private LayerMask crossHair = new LayerMask();
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform firePoint;
+    private Vector3 mousePosition = Vector3.zero;
+    private bool canShoot;
 
-    void Update()
+    public void Update()
     {
         if (TurnManager.GetInstance().PlayerIsActive(playerIndex))
         {
-            Vector3 mousePosition = Vector3.zero;
+
+
             Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
             Ray ray = cam.ScreenPointToRay(screenCenter);
 
@@ -27,5 +32,5 @@ public class PlayerShoot : MonoBehaviour
                 Instantiate(projectilePrefab, firePoint.position, Quaternion.LookRotation(aimDir, Vector3.up));
             }
         }
-    }
+    }   
 }
