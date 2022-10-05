@@ -10,7 +10,6 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform firePoint;
     private Vector3 mousePosition = Vector3.zero;
-    private bool canShoot;
 
     public void Update()
     {
